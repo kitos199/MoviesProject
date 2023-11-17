@@ -4,7 +4,7 @@ const Search = () => {
   const [state, setState] = useState('')
   return (
     <div className='row'>
-      <div className='input-field '>
+      <div className='input-field inlin'>
         <input
           placeholder='search'
           type='search'
