@@ -15,11 +15,17 @@ class Main extends Component {
         this.setState({ movies: data.Search })
       )
   }
+  searchMovies=(str)=>{
+    fetch(`http://www.omdbapi.com/?apikey=daeb0d80&s=${str}`)
+    .then((response)=>response.json())
+    .then(data=>this.setState({movies:data.Search}))
+  }
   render() {
     const { movies } = this.state
     return (
       <main className='conteiner content'>
-        <Search />
+        <Search searchMovies={this.searchMovies}
+        />
         {movies.length ? (
           <Movies movies={this.state.movies} />
         ) : (
